@@ -1,0 +1,217 @@
+body {
+  background: rgb(46, 63, 87) !important;
+  background: linear-gradient(
+    90deg,
+    rgb(63, 86, 119) 0% !important,
+    rgba(33, 44, 61, 1) 42% !important,
+    rgb(15, 21, 29) 100% !important
+  ) !important;
+}
+
+/* SIDEBAR SECTION */
+.navbar.fixed-left {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 230px !important;
+  flex-flow: column nowrap !important;
+  align-items: flex-start !important;
+  background-color: black !important;
+  z-index: 1200 !important;
+}
+
+.navbar.fixed-left .navbar-collapse .navbar-nav a {
+  color: rgb(145, 145, 145) !important;
+  transition: 0.3s !important;
+}
+
+.navbar.fixed-left .navbar-collapse .navbar-nav a:hover {
+  color: white !important;
+}
+
+.navbar.fixed-left .navbar-brand {
+  padding-top: 20px !important;
+  padding-bottom: 30px !important;
+  padding-left: 10px !important;
+}
+
+ul {
+  list-style-type: none !important;
+  padding-left: 3px !important;
+}
+
+.nav-btn {
+  margin-bottom: 20px !important;
+  text-align: center !important;
+}
+
+.nav-btn a {
+  color: rgb(145, 145, 145) !important;
+  text-decoration: none !important;
+}
+
+.nav-link i {
+  font-size: 1.5em !important;
+}
+
+.signup-btn {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid white !important;
+  border-radius: 20px !important;
+  width: 180px !important;
+  margin-bottom: 20px !important;
+}
+
+.signup-btn:hover {
+  color: white !important;
+  background-color: rgb(60, 211, 60) !important;
+  border: 1px solid rgb(60, 211, 60) !important;
+}
+
+.login-btn {
+  background-color: black !important;
+  color: white !important;
+  border: 1px solid white !important;
+  border-radius: 20px !important;
+  width: 180px !important;
+  margin-bottom: 20px !important;
+}
+
+.login-btn:hover {
+  color: black !important;
+  background-color: white !important;
+}
+
+@media screen and (max-width: 936px) {
+  #sidebar {
+    display: none !important;
+  }
+}
+
+/* BOTTOM PLAYER SECTION */
+.bg-container {
+  height: 5.5rem !important;
+  background-color: #282828 !important;
+}
+
+.playerControls div {
+  justify-content: space-between !important;
+}
+
+.playerControls div:first-of-type {
+  margin-left: 10% !important;
+  margin-right: 10% !important;
+}
+
+.playerControls a img {
+  width: 14px !important;
+  margin-top: 1rem !important;
+  filter: brightness(60%) !important;
+}
+
+.playerControls a:hover {
+  filter: brightness(80%) !important;
+  color: #282828 !important;
+}
+
+.progress {
+  color: white !important;
+  background-color: #414141 !important;
+  height: 3px !important;
+}
+
+@media screen and (min-width: 1200px) {
+  .playerControls div:first-of-type {
+    margin-left: 25% !important;
+    margin-right: 25% !important;
+  }
+}
+
+/* MAIN PAGE SECTION */
+@media screen and (max-width: 936px) {
+  #searchbar {
+    display: block !important;
+  }
+}
+
+/* Barra di ricerca nascosta quando la sidebar è visibile */
+@media screen and (min-width: 936px) {
+  #searchbar {
+    display: none !important;
+  }
+}
+
+/* Link di navigazione in cima */
+.mainLinks {
+  position: relative; /* Per garantire che rimangano in cima */
+  z-index: 1000; /* Assicurati che abbiano una z-index superiore rispetto alla barra di ricerca */
+  margin-top: 1.5rem !important;
+  justify-content: space-evenly !important;
+}
+
+
+.like-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em; /* Dimensiona l'icona */
+}
+
+.like-button i {
+  transition: color 0.3s ease;
+}
+
+.like-button i.bi-heart-fill {
+  color: green; /* Colore per i cuori "mi piace" */
+}
+
+.like-button i.bi-heart {
+  color: gray; /* Colore per i cuori non "mi piace" */
+}
+
+.like-button:hover i {
+  color: darkgreen; /* Colore al passaggio del mouse per il cuore "mi piace" */
+}
+
+
+.mainLinks a {
+  color: white !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  opacity: 0.3 !important;
+  text-decoration: none !important;
+}
+
+.mainLinks a:hover {
+  text-decoration: none !important;
+  opacity: 1 !important;
+  transition: 0.3s !important;
+}
+
+.imgLinks a p,
+.mainPage p {
+  padding-top: 8px !important;
+  font-size: 12px !important;
+  color: white !important;
+  font-weight: 700 !important;
+}
+
+#rock,
+#pop,
+#hiphop,
+#searchResults {
+  color: white !important;
+  font-weight: 700 !important;
+  padding-top: 50px !important;
+}
+
+#hipHopSection {
+  margin-bottom: 7rem !important;
+}
+
+.mainPage img {
+  width: 200px !important;
+}
