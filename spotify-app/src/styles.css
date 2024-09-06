@@ -1,10 +1,10 @@
 body {
   background: rgb(46, 63, 87) !important;
   background: linear-gradient(
-    90deg,
-    rgb(63, 86, 119) 0% !important,
-    rgba(33, 44, 61, 1) 42% !important,
-    rgb(15, 21, 29) 100% !important
+    90deg ,
+    rgb(63, 86, 119) 0%,
+    rgba(33, 44, 61, 1) 42%,
+    rgb(15, 21, 29) 100%
   ) !important;
 }
 
@@ -92,35 +92,79 @@ ul {
 }
 
 /* BOTTOM PLAYER SECTION */
+/* Hidden by default */
 .bg-container {
-  height: 5.5rem !important;
-  background-color: #282828 !important;
+  display: none;
 }
 
-.playerControls div {
-  justify-content: space-between !important;
+/* Visible when a song is selected */
+.bg-container.visible {
+  display: block;
+ 
+  background-color: #282828;
 }
-
 .playerControls div:first-of-type {
-  margin-left: 10% !important;
-  margin-right: 10% !important;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.playerControls {
+  background-color: #282828;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
 }
 
+.playerControls .song-info {
+  display: flex;
+  align-items: start;
+  margin-bottom: 10px;
+}
+
+.playerControls .song-info img {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.playerControls .song-info div {
+  display: flex;
+  flex-direction: column;
+}
+
+.playerControls .controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerControls .controls a {
+  margin: 0 10px;
+}
+
+.playerControls .controls img {
+  width: 24px;
+  height: 24px;
+}
 .playerControls a img {
-  width: 14px !important;
-  margin-top: 1rem !important;
-  filter: brightness(60%) !important;
+  
+  filter: brightness(60%);
 }
 
-.playerControls a:hover {
-  filter: brightness(80%) !important;
-  color: #282828 !important;
-}
 
 .progress {
-  color: white !important;
-  background-color: #414141 !important;
-  height: 3px !important;
+  background-color:transparent;
+  height: 3px;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.progress div {
+  background-color: #1db954;
+  height: 100%;
+  border-radius: 5px;
 }
 
 @media screen and (min-width: 1200px) {
@@ -146,8 +190,7 @@ ul {
 
 /* Link di navigazione in cima */
 .mainLinks {
-  position: relative; /* Per garantire che rimangano in cima */
-  z-index: 1000; /* Assicurati che abbiano una z-index superiore rispetto alla barra di ricerca */
+  position: relative;
   margin-top: 1.5rem !important;
   justify-content: space-evenly !important;
 }
@@ -157,7 +200,8 @@ ul {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.5em; /* Dimensiona l'icona */
+  font-size: 1.5em; 
+  margin-bottom: 10px;
 }
 
 .like-button i {
@@ -165,7 +209,7 @@ ul {
 }
 
 .like-button i.bi-heart-fill {
-  color: green; /* Colore per i cuori "mi piace" */
+  color: green; 
 }
 
 .like-button i.bi-heart {

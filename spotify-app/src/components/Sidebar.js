@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchAlbums, setSearching } from '../redux/slices/musicSlice';
 import logo from '../assets/logo.png';
@@ -6,12 +6,17 @@ import '../styles.css';
 
 function Sidebar() {
   const dispatch = useDispatch();
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = (e) => {
     e.preventDefault();
-    const query = e.target.elements.search.value;
-    dispatch(setSearching(true));  // Indica che è in corso una ricerca
-    dispatch(fetchAlbums({ query, category: 'searchResults' }));
+    dispatch(setSearching(true)); // Indica che è in corso una ricerca
+    dispatch(fetchAlbums({ query: searchQuery, category: 'searchResults' }));
+    setSearchQuery(''); // Svuota la barra di ricerca
+  };
+
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value);
   };
 
   return (
@@ -58,6 +63,8 @@ function Sidebar() {
                       className="form-control"
                       placeholder="Search"
                       aria-label="Search"
+                      value={searchQuery}
+                      onChange={handleChange}
                     />
                     <div className="input-group-append">
                       <button className="btn btn-outline-secondary btn-sm h-100" type="submit">

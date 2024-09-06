@@ -1,3 +1,5 @@
+// src/components/MainPage.js
+
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AlbumCard from './AlbumCard';
@@ -26,7 +28,8 @@ function MainPage() {
     dispatch(fetchAlbums({ query: 'eminem', category: 'hipHopAlbums' }));
   }, [dispatch]);
 
-  const displayedAlbums = isSearching ? searchResults : [...rockAlbums, ...popAlbums, ...hipHopAlbums];
+  // Limita a 4 album per le categorie di default
+  const limitedAlbums = (albums) => albums.slice(0, 4);
 
   return (
     <>
@@ -38,23 +41,24 @@ function MainPage() {
           <a href="#">NEW RELEASES</a>
           <a href="#">DISCOVER</a>
         </div>
-      </div>
-
-      <div id="searchbar" className="d-md-none">
-        <form onSubmit={handleSearch} className="input-group">
-          <input
-            type="text"
-            name="search"
-            className="form-control"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <div className="input-group-append">
-            <button className="btn btn-outline-secondary btn-sm h-100" type="submit">
-              GO
-            </button>
+        <div className="col-3 d-md-none">
+          <div id="searchbar">
+            <form onSubmit={handleSearch} className="input-group">
+              <input
+                type="text"
+                name="search"
+                className="form-control"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <div className="input-group-append">
+                <button className="btn btn-outline-secondary btn-sm h-100" type="submit">
+                  GO
+                </button>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
 
       {status === 'loading' && <p>Loading...</p>}
@@ -67,7 +71,7 @@ function MainPage() {
               <div id="rock">
                 <h2>Rock Classics</h2>
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-                  {rockAlbums.map((album) => (
+                  {limitedAlbums(rockAlbums).map((album) => (
                     <AlbumCard key={album.id} song={album} />
                   ))}
                 </div>
@@ -80,7 +84,7 @@ function MainPage() {
               <div id="pop">
                 <h2>Pop Culture</h2>
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-                  {popAlbums.map((album) => (
+                  {limitedAlbums(popAlbums).map((album) => (
                     <AlbumCard key={album.id} song={album} />
                   ))}
                 </div>
@@ -93,7 +97,7 @@ function MainPage() {
               <div id="hiphop">
                 <h2>#HipHop</h2>
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-                  {hipHopAlbums.map((album) => (
+                  {limitedAlbums(hipHopAlbums).map((album) => (
                     <AlbumCard key={album.id} song={album} />
                   ))}
                 </div>
